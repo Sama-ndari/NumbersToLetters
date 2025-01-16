@@ -33,22 +33,22 @@ function num2Letters(n) {
 			tensOut = units2Letters[10 + units];// de 10 a 19
 			unitsOut = '';
 		} else if (tens === 7 || tens === 9) {
-			tensOut = tens2Letters[tens] +'-'+ (tens === 7 && units === 1 ? 'et-' : '') + units2Letters[10 + units];// 70+ et 90+
+			tensOut = tens2Letters[tens] +''+ (tens === 7 && units === 1 ? ' et ' : '-') + units2Letters[10 + units];// 70+ et 90+
 			unitsOut = '';
 		} else {
 			tensOut = tens2Letters[tens];// pour le reste
 		}
 		tensOut += (units === 0 && tens === 8 ? 's' : '');//ajout de 's' pour 80
 		// Traitement des centaines
-		hundredsOut = (hundreds > 1 ? units2Letters[hundreds] + '-' : '') + (hundreds > 0 ? 'cent' : '') + (hundreds > 1 && tens == 0 && units == 0 ? 's' : '');
+		hundredsOut = (hundreds > 1 ? units2Letters[hundreds] + ' ' : '') + (hundreds > 0 ? 'cent' : '') + (hundreds > 1 && tens == 0 && units == 0 ? 's' : '');
 		// Traitement des milliers
-		thousandsOut = (thousands > 1 ? units2Letters[thousands] + '-' : '') + (thousands > 0 ? 'mille' : '') + (thousands > 1 && hundreds == 0 && tens == 0 && units == 0 ? 's' : '');
+		thousandsOut = (thousands > 1 ? units2Letters[thousands] + ' ' : '') + (thousands > 0 ? 'mille' : '') + (thousands > 1 && hundreds == 0 && tens == 0 && units == 0 ? 's' : '');
 		
 		// Retour du total
 		if(n < 0)
-			return 'Moins ' +thousandsOut + (thousandsOut && hundredsOut ? '-' : ' ') + hundredsOut + (hundredsOut && tensOut ? '-': '') + tensOut + (hundredsOut && unitsOut || tensOut && unitsOut ? '-': '') + unitsOut;
+			return 'Moins ' +thousandsOut + (thousandsOut && hundredsOut ? '-' : ' ') + hundredsOut + (hundredsOut && tensOut ? ' ': ' ') + tensOut + (hundredsOut && unitsOut || tensOut && unitsOut ? '-': '') + unitsOut;
 		else
-			return thousandsOut + (thousandsOut && hundredsOut ? '-' : ' ') + hundredsOut + (hundredsOut && tensOut ? '-': '') + tensOut + (hundredsOut && unitsOut || tensOut && unitsOut ? '-': '') + unitsOut;
+			return thousandsOut + (thousandsOut && hundredsOut ? ' ' : '') + hundredsOut + (hundredsOut && tensOut ? ' ': ' ') + tensOut + (hundredsOut && unitsOut || tensOut && unitsOut ? '-': '') + unitsOut;
 	
 	}
 }
