@@ -10,7 +10,6 @@ function num2Letters(n) {
 		var number = n; 
 	
 	
-	
 	var units2Letters = ['', 'un', 'deux', 'trois', 'quatre',
 						'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze',
 						'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit',
